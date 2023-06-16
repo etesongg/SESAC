@@ -1,13 +1,7 @@
 hello
 
-<<<<<<< HEAD
-아무거나 적음
-
-✨ 반갑습니다
-=======
 아무거나 적음 
 d
 sadasdassa
 saasdasfsa
 fasdas
->>>>>>> 9802b33fb985e5b1556ec3da20968163e9311221
