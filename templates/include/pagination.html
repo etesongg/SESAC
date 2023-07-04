@@ -10,18 +10,18 @@
         <a href="?name={{ search_name }}&gender={{ search_gender }}&page=6{{ keywords }}" class="button">다음</a>
     {% elif current_page > total_pages-6 %}
         <a href="?name={{ search_name }}&gender={{ search_gender }}&page=1{{ keywords }}" class="button">처음</a>
-        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{current_page-5}}{{ keywords }}" class="button">이전</a>
+        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{ current_page-5 }}{{ keywords }}" class="button">이전</a>
         {% for num in range(total_pages-5, total_pages+1) %}
             <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{num}}{{ keywords }}" class="button">{{ num }}</a>
         {% endfor %}
     {% else %}
         <a href="?name={{ search_name }}&gender={{ search_gender }}&page=1{{ keywords }}" class="button">처음</a>
-        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{current_page-5}}{{ keywords }}" class="button">이전</a>
+        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{ current_page-5 }}{{ keywords }}" class="button">이전</a>
         {% for num in range(current_page, current_page+5) %}
             <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{num}}{{ keywords }}" class="button">{{ num }}</a>
         {% endfor %}
-        <a href="?name={{ search_name }}&gender={{ search_gender }}&page=current_page+5{{ keywords }}" class="button">이후</a>
-        <a href="?name={{ search_name }}&gender={{ search_gender }}&page=total_pages{{ keywords }}"class="button">끝</a>
+        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{ current_page+5 }}{{ keywords }}" class="button">이후</a>
+        <a href="?name={{ search_name }}&gender={{ search_gender }}&page={{ total_pages }}{{ keywords }}"class="button">끝</a>
     {% endif %}
     
 </div>
