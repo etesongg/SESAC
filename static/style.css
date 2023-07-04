@@ -8,7 +8,7 @@
 }
 table {
     border-collapse: collapse;
-    width: 1100px;
+    width: 1085px;
 }
 th {
     background-color: #ECE5C7;
@@ -100,7 +100,8 @@ input {
 .main_container {
     width: 1100px;
     height: 500px;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 
