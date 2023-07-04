@@ -22,6 +22,10 @@ def index():
             clean_row = {key.strip(): value.strip() for key, value in row.items()}
             data.append(clean_row)
     
+        # pagination에서 받을 keywords 값
+    keywords = " "
+    keywords += "&name=" + search_name + "&gender=" + search_gender
+
     # 검색 결과에 따른 데이터 보여주기
     filter_data = []
     if search_name: 
@@ -41,9 +45,6 @@ def index():
         else: # search_name 값 x, search_gneder 값 x
             filter_data = data
 
-    # pagination에서 받을 keywords 값
-    keywords = " "
-    keywords += "&name=" + search_name + "&gender=" + search_gender
 
     total_pages = math.ceil((len(filter_data) / per_page)) # math.ceil 소수점 이하를 올림한다
     start_index = per_page * (page -1)
