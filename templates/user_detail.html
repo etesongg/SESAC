@@ -8,7 +8,7 @@
     {% include './include/nav.html' %}
 
     <div class="search"></div>
-
+    <div class="main_container">
     <table border="1">
         <tr>
             {% for header in headers[1:] %}
@@ -23,7 +23,7 @@
             {% endfor %}
         </tr>   
     </table>
-
+    </div>
     <div class="goback">
         <p><a href="{{ url_for('user.index') }}" class="button">Go Home</a></p>
         <p><a href="{{ request.referrer }}" class="button">Back</a></p>
