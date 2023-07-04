@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template, url_for
 import csv
 import math
+from functions.read_csv import read_csv
 
 order_bp = Blueprint('order', __name__)
 
@@ -8,14 +9,10 @@ order_bp = Blueprint('order', __name__)
 def order():
     page = request.args.get('page', default=1, type=int)
 
-    data = []
     per_page = 10
-    with open('order.csv', 'r', encoding='utf8') as file:
-        csv_data = csv.DictReader(file)
-        headers = [header.strip() for header in csv_data.fieldnames]
-        for row in csv_data:
-            data.append(row)
 
+    headers, data = read_csv('order.csv')
+    
     total_pages = math.ceil((len(data)) / per_page)
     start_index = per_page * (page -1)
     end_index = start_index + per_page

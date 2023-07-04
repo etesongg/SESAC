@@ -1,6 +1,7 @@
 from flask import Blueprint, request, render_template, url_for
 import csv
 import math
+from functions.read_csv import read_csv
 
 user_bp = Blueprint('user', __name__)
 
@@ -13,14 +14,7 @@ def index():
     per_page = 10
 
     # csv 파일 읽기
-    data = []
-    
-    with open('user.csv', 'r', encoding='utf8') as file:
-        csv_data = csv.DictReader(file)
-        headers = [header.strip() for header in csv_data.fieldnames]
-        for row in csv_data:
-            clean_row = {key.strip(): value.strip() for key, value in row.items()}
-            data.append(clean_row)
+    headers, data = read_csv('user.csv')
 
     # 검색 결과에 따른 데이터 보여주기
     filter_data = []
@@ -51,11 +45,10 @@ def index():
 
 @user_bp.route('/user/<id>')
 def user_detail(id):
-    with open('user.csv', 'r', encoding='utf8') as file:
-        csv_data = csv.DictReader(file)
-        headers = [header.strip() for header in csv_data.fieldnames]
-        for row in csv_data:
-            if row['Id'] == id:
-                user_data = row
-                break
+    headers, data = read_csv('user.csv')
+
+    for row in data:
+        if row['Id'] == id:
+            user_data = row
+            break
     return render_template('user_detail.html', user=user_data, headers=headers)
