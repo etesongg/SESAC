@@ -22,3 +22,15 @@ def item():
     page_data = data[start_index:end_index]
 
     return render_template('item.html', headers=headers, total_pages=total_pages, page_data=page_data, url_for=url_for, current_page=page)
+
+@item_bp.route('/item/<id>')
+def item_detail(id):
+    with open('item.csv', 'r', encoding='utf8') as file:
+        csv_data = csv.DictReader(file)
+        headers = [header.strip() for header in csv_data.fieldnames]
+        for row in csv_data:
+            if row['Id'] == id:
+                user_data = row
+                break
+    
+    return render_template('item_detail.html', user=user_data, headers=headers)
