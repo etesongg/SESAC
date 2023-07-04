@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, url_for
 import csv
 import math
 from functions.read_csv import read_csv
+from functions.calc_pages import calc_pages
 
 order_bp = Blueprint('order', __name__)
 
@@ -12,10 +13,7 @@ def order():
     per_page = 10
 
     headers, data = read_csv('order.csv')
-    
-    total_pages = math.ceil((len(data)) / per_page)
-    start_index = per_page * (page -1)
-    end_index = start_index + per_page
-    page_data = data[start_index:end_index]
+
+    total_pages, page, page_data = calc_pages(data, per_page, page)
 
     return render_template('order.html', headers=headers, page_data=page_data, total_pages=total_pages, url_for=url_for, current_page=page)

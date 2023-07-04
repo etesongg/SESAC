@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template, url_for
 import csv
 import math
 from functions.read_csv import read_csv
+from functions.calc_pages import calc_pages
 
 user_bp = Blueprint('user', __name__)
 
@@ -35,11 +36,10 @@ def index():
         else: # search_name 값 x, search_gneder 값 x
             filter_data = data
 
+    # 페이지 계산
 
-    total_pages = math.ceil((len(filter_data) / per_page)) # math.ceil 소수점 이하를 올림한다
-    start_index = per_page * (page -1)
-    end_index = start_index + per_page
-    page_data = filter_data[start_index:end_index]
+    total_pages, page, page_data = calc_pages(filter_data, per_page, page)
+
     
     return render_template('users.html', headers=headers, page_data=page_data, total_pages=total_pages, search_name=search_name, search_gender=search_gender, url_for=url_for, current_page=page)
 
