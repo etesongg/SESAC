@@ -11,20 +11,20 @@
         <div class="search_name">
         <form action="/" method="get">
             <label for="Name">Name: </label>
-            <input type="text" name="name" value="{{ search_name }}" >
+            <input type="text" name="name" value="{{ search_name}}" >
         </div>
         <div class="search_gender">
             <label for="gender">gender: </label>
             <select name="gender" id="">
                 <option value=""></option>
-                <option value="Male" {% if search_gender == "Male" %}selected{% endif %} >Male</option>
-                <option value="Female" {% if search_gender == "Female" %}selected{% endif %}>Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
             </select>
             <button type="submit">검색</button>
         </div>    
         </form>
     </div>
-    <div class="main_container">
+
     <table border="1">
         <tr>
             {% for header in headers %}
@@ -42,7 +42,6 @@
                 </tr>
             {% endfor %} 
     </table>
-    </div>
 
     {% include './include/pagination.html' %}
 

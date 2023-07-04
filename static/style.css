@@ -8,7 +8,7 @@
 }
 table {
     border-collapse: collapse;
-    width: 1085px;
+    width: 1100px;
 }
 th {
     background-color: #ECE5C7;
@@ -23,6 +23,7 @@ td {
 }
 .main-nav {
     max-width: 1100px;
+    /* width: 80%; */
     height: 40px;
     display: flex;
     list-style: none;
@@ -31,7 +32,10 @@ td {
     text-decoration-line: none;
     font-weight: bold;
     background-color: #CDC2AE;
-    padding-top: 20px;  
+    padding-top: 20px;
+   
+    /* margin: 30px 10px; */
+    
 }
 .main-nav li {
     margin-right: 20px;
@@ -47,7 +51,7 @@ td {
     max-width: 1100px;
     margin: 20px auto;
     text-align: center;
-    font-size: 17px;   
+    
 }
 .goback {
     display: flex;
@@ -72,10 +76,6 @@ table {
     background-color: #CDC2AE;
     padding: 10px 40px 10px;
 }
-.other_search {
-    height: 47px;
-    background-color: #CDC2AE;
-}
 .search_name{
     padding-right: 10px;
 }
@@ -92,13 +92,6 @@ input {
     width: 65px;
     height: 19px;
 }
-.main_container {
-    width: 1100px;
-    height: 500px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
 
 
 
