@@ -77,6 +77,10 @@ table {
     background-color: #CDC2AE;
     padding: 10px 40px 10px;
 }
+.other_search {
+    height: 47px;
+    background-color: #CDC2AE;
+}
 .search_name{
     padding-right: 10px;
 }
@@ -98,6 +102,8 @@ input {
     height: 500px;
     overflow: scroll;
 }
+
+
 
 
 
