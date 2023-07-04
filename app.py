@@ -11,7 +11,7 @@ def index():
     page = request.args.get('page', default=1, type=int)
     search_name = request.args.get('name', default ="", type=str) 
     search_gender = request.args.get('gender', default="", type=str)
-    
+
     per_page = 10
 
     # csv 파일 읽기
@@ -43,7 +43,11 @@ def index():
         else: # search_name 값 x, search_gneder 값 x
             filter_data = data
 
-    # 페이지 나누기
+    # pagination에서 받을 keywords 값
+    keywords = ""
+    keywords += "&name=" + search_name
+    keywords += "&gender=" + search_gender
+
     total_pages = math.ceil((len(filter_data) / per_page)) # math.ceil 소수점 이하를 올림한다
     start_index = per_page * (page -1)
     end_index = start_index + per_page
@@ -80,6 +84,17 @@ def store():
     page_data = data[start_index:end_index]
 
     return render_template('store.html', headers=headers, page_data=page_data, total_pages=total_pages, url_for=url_for, current_page=page)
+
+@app.route('/store/<id>')
+def store_detail(id):
+    with open('store.csv', 'r', encoding='utf8') as file:
+        csv_data = csv.DictReader(file)
+        headers = [header.strip() for header in csv_data.fieldnames]
+        for row in csv_data:
+            if row['Id'] == id:
+                user_data = row
+                break
+    return render_template('store_detail.html', user=user_data, headers=headers)
                            
 @app.route('/order/')
 def order():
@@ -141,4 +156,4 @@ def item():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5001,debug=True)
