@@ -21,10 +21,6 @@ def index():
         for row in csv_data:
             clean_row = {key.strip(): value.strip() for key, value in row.items()}
             data.append(clean_row)
-    
-        # pagination에서 받을 keywords 값
-    keywords = " "
-    keywords += "&name=" + search_name + "&gender=" + search_gender
 
     # 검색 결과에 따른 데이터 보여주기
     filter_data = []
