@@ -19,25 +19,22 @@ def index():
 
     # 검색 결과에 따른 데이터 보여주기
     filter_data = []
-    if search_name: 
-        if search_gender: 
-            for row in data:
-                if search_name in row['Name'] and search_gender in row['Gender']: # search_name 값 O, search_gneder 값 O
+    for row in data:
+        if not search_name: # search_name x
+            if not search_gender: # search_name x, search_gender x
+                filter_data.append(row)
+            else:
+                if search_gender in row['Gender']: # search_name x, search_gender o
                     filter_data.append(row)
-        else:
-            for row in data:
-                if search_name in row['Name']: # search_name 값 O, search_gneder 값 x
-                    filter_data.append(row)     
-    else: 
-        if search_gender:
-            for row in data:
-                if search_gender in row['Gender']: # search_name 값 x, search_gneder 값 O
+        else: # search_name o
+            if search_name in row['Name']: # search_name o
+                if not search_gender: # search_name o, search_gender x
                     filter_data.append(row)
-        else: # search_name 값 x, search_gneder 값 x
-            filter_data = data
+                else:
+                    if search_gender in row['Gender']: # search_name o, search_gender o
+                        filter_data.append(row)
 
     # 페이지 계산
-
     total_pages, page, page_data = calc_pages(filter_data, per_page, page)
 
     
