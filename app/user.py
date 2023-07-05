@@ -1,6 +1,5 @@
-from flask import Blueprint, request, render_template, url_for
-import csv
-import math
+from flask import Blueprint, request, render_template
+
 from functions.read_csv import read_csv
 from functions.calc_pages import calc_pages
 
@@ -38,9 +37,9 @@ def index():
     total_pages, page, page_data = calc_pages(filter_data, per_page, page)
 
     
-    return render_template('users.html', headers=headers, page_data=page_data, total_pages=total_pages, search_name=search_name, search_gender=search_gender, url_for=url_for, current_page=page)
+    return render_template('users.html', headers=headers, page_data=page_data, total_pages=total_pages, search_name=search_name, search_gender=search_gender, current_page=page)
 
-@user_bp.route('/user/<id>')
+@user_bp.route('/user_detail/<id>')
 def user_detail(id):
     headers, data = read_csv('user.csv')
 

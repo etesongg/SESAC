@@ -1,6 +1,5 @@
-from flask import Blueprint, request, render_template, url_for
-import csv
-import math
+from flask import Blueprint, request, render_template
+
 from functions.read_csv import read_csv
 from functions.calc_pages import calc_pages
 
@@ -16,10 +15,10 @@ def store():
     
     total_pages, page, page_data = calc_pages(data, per_page, page)
 
-    return render_template('store.html', headers=headers, page_data=page_data, total_pages=total_pages, url_for=url_for, current_page=page)
+    return render_template('store.html', headers=headers, page_data=page_data, total_pages=total_pages, current_page=page)
 
-@store_bp.route('/store/<id>')
-def user_detail(id):
+@store_bp.route('/store_detail/<id>')
+def store_detail(id):
     headers, data = read_csv('store.csv')
 
     for row in data:

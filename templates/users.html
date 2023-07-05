@@ -33,7 +33,7 @@
         </tr>
             {% for data in page_data %}
                 <tr>
-                    <td><a href="/user/{{ data['Id'] }}">{{data['Id']}}</a></td>
+                    <td><a href="/user_detail/{{ data['Id'] }}">{{data['Id']}}</a></td>
 
                     {% set keys = data.keys()|list %}
                     {% for key in keys[1:] %}
