@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include './include/head.html' %}
-</head>
-<body>
-    <div class="wrapper">
-    {% include './include/nav.html' %}
+{% extends "base.html" %}
 
-    <div class="other_search"></div>
-    <div class="main_container">
+{% block search %}
+<div class="other_search"></div>
+{% endblock %}
+
+{% block content %}
+<div class="main_container">
     <table border="1">
         <tr>
             {% for header in headers %}
@@ -25,9 +22,6 @@
         </tr>
     {% endfor %} 
     </table>
-    </div>
-    {% include './include/pagination.html' %}
-
 </div>
-</body>
-</html>
+{% endblock %}
+   

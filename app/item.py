@@ -10,7 +10,7 @@ def item():
 
     per_page = 10
 
-    headers, data = read_csv('item.csv')
+    headers, data = read_csv('csv/item.csv')
 
     total_pages, page, page_data = calc_pages(data, per_page, page)
 
@@ -18,7 +18,7 @@ def item():
 
 @item_bp.route('/item_detail/<id>')
 def item_detail(id):
-    headers, data = read_csv('item.csv')
+    headers, data = read_csv('csv/item.csv')
     for row in data:
         if row['Id'] == id:
             user_data = row

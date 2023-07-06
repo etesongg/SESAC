@@ -14,7 +14,7 @@ def index():
     per_page = 10
 
     # csv 파일 읽기
-    headers, data = read_csv('user.csv')
+    headers, data = read_csv('csv/user.csv')
 
     # 검색 결과에 따른 데이터 보여주기
     filter_data = []
@@ -41,7 +41,7 @@ def index():
 
 @user_bp.route('/user_detail/<id>')
 def user_detail(id):
-    headers, data = read_csv('user.csv')
+    headers, data = read_csv('csv/user.csv')
 
     for row in data:
         if row['Id'] == id:

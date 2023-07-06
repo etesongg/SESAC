@@ -11,7 +11,7 @@ def order():
 
     per_page = 10
 
-    headers, data = read_csv('order.csv')
+    headers, data = read_csv('csv/order.csv')
 
     total_pages, page, page_data = calc_pages(data, per_page, page)
 

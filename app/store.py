@@ -11,7 +11,7 @@ def store():
 
     per_page = 10
 
-    headers, data = read_csv('store.csv')
+    headers, data = read_csv('csv/store.csv')
     
     total_pages, page, page_data = calc_pages(data, per_page, page)
 
@@ -19,7 +19,7 @@ def store():
 
 @store_bp.route('/store_detail/<id>')
 def store_detail(id):
-    headers, data = read_csv('store.csv')
+    headers, data = read_csv('csv/store.csv')
 
     for row in data:
         if row['Id'] == id:
