@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let counter = 0
+            const listener = () => {
+                header.textContent = `클릭 횟수 : ${++counter}`
+            }
+            
+            // 생성
+            const header = document.createElement('h1')
+            header.textContent = `클릭 횟수 : 0`
+            const p = document.createElement('p')
+            p.textContent = '이벤트 연결 상태 : 해제'
+            const connectButton = document.createElement('button')
+            connectButton.textContent = '이벤트 연결 버튼'
+            connectButton.addEventListener('click', ()=> {
+                header.addEventListener('click', listener)
+                p.textContent = '이벤트 연결 상태 : 연결'
+            })
+            const disconnectButton = document.createElement('button')
+            disconnectButton.textContent = '이벤트 해제 버튼'
+            disconnectButton.addEventListener('click', ()=>{
+                header.removeEventListener('click', listener)
+             //removeEventListener를 사용하기 위해서는 click을 연결할때 사용한 EventListener를 별도의 변수로 만들어 줘야함.
+                p.textContent = '이벤트 연결 상태 : 해제'   
+            })
+            // 출력
+            document.body.appendChild(header)
+            document.body.appendChild(connectButton)
+            document.body.appendChild(disconnectButton)
+            document.body.appendChild(p)
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>
