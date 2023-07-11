@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calulator</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            }
+        .pad button {
+            width: 50px;
+            height: 40px;
+            font-size: 15px;
+            padding: 10px;
+            margin: 2px 0;
+        }
+        .display {
+            height: 45px;
+            margin-bottom: 2px;
+        }
+        input {
+            height: 40px;
+            width: 210px;
+        }
+        
+    </style>
+    <script>
+        function input(value) {
+            let display = document.querySelector('.display');
+            display.value += value;
+        } 
+        
+        function calculate() {
+            let display = document.querySelector('.display');
+            try {
+                display.value = eval(display.value);
+            }
+            catch (error) {
+                display.value = "Error";
+            }
+        }
+
+        function cleardisplay() {
+            let display = document.querySelector('.display');
+            display.value = '';
+        } 
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div >
+            <input class="display" type="text" readonly> 
+        </div>
+        <div class="pad">
+            <button onclick="input('+')">+</button>
+            <button onclick="input('-')">-</button>
+            <button onclick="input('*')">*</button>
+            <button onclick="input('/')">/</button>
+        </div>
+        <div class="pad">
+            <button onclick="input(7)">7</button>
+            <button onclick="input(8)">8</button>
+            <button onclick="input(9)">9</button>
+            <button onclick="calculate()">=</button>
+        </div>
+        <div class="pad">
+            <button onclick="input(4)">4</button>
+            <button onclick="input(5)">5</button>
+            <button onclick="input(6)">6</button>
+            <button onclick="cleardisplay()">C</button>
+        </div>
+        <div class="pad">
+            <button onclick="input(1)">1</button>
+            <button onclick="input(2)">2</button>
+            <button onclick="input(3)">3</button>
+            <button onclick="input(0)">0</button>
+        </div>
+    </div>
+</body>
+</html>

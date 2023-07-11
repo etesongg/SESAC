@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <title>Table Example</title>
+    <script>
+    var current = 0;
+    function changeChellColor() {
+        let cells = document.getElementsByTagName("td");
+        var color;
+
+        if (current === 0) {
+            current = 1;
+            color = "lightblue";
+        } else {
+            current = 0;
+            color = "red";
+        }
+        for (var i=0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = color;
+        }
+    } 
+    </script>
+        
+</head>
+<body>
+    <table border =1>
+        <tr>
+            <td>셀 1</td>
+            <td>셀 2</td>
+            <td>셀 3</td>
+        </tr>
+        <tr>
+            <td>셀 4</td>
+            <td>셀 5</td>
+            <td>셀 6</td>
+        </tr>
+        <tr>
+            <td>셀 7</td>
+            <td>셀 8</td>
+            <td>셀 9</td>
+        </tr>
+    </table>
+
+    <button onclick="changeChellColor()">색상 변경 버튼</button>
+</body>
+</html>
