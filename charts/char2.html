@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    <title>chart.js를 사용한 그래프 그리기</title>
+    <style>
+        div {
+            width : 30%
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <!-- <canvas id="myChart"></canvas> 빈 캔버스 만들고 js로 그래프 채우기 
+        <canvas id="myChart2"></canvas> -->
+        <canvas id="myChart3"></canvas>
+    </div>
+    <script>
+        // 원하는 그래프 내용을 여기에 채우기
+        const ctx = document.getElementById('myChart');
+        // bubble_chart()
+        const ctx2 = document.getElementById('myChart2');
+        // line_chart()
+        const ctx3 = document.getElementById('myChart3');
+        // Doughnut_char()
+        Ploar_char()
+
+        function Ploar_char() {
+            new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                labels: [
+                    'Red',
+                    'Green',
+                    'Yellow',
+                    'Grey',
+                    'Blue'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [11, 16, 7, 3, 14],
+                    backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(75, 192, 192)',
+                    'rgb(255, 205, 86)',
+                    'rgb(201, 203, 207)',
+                    'rgb(54, 162, 235)'
+                    ],
+                    circular: true,
+                }]
+                },
+                options: {}
+            })
+        }
+
+        function Doughnut_char() {
+            new Chart(ctx3, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Red',
+                        'Blue',
+                        'Yellow'
+                    ],
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: [300, 50, 100],
+                        backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                        ],
+                        hoverOffset: 50, // 움직이는 반경?
+  
+                    }]
+                },
+                options: {
+                    cutout: 0,
+                }
+                
+            });
+        }
+
+        function line_chart() {
+            new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['jan', 'feb', 'mar', 'apr','may'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [10,20,30,40,50]
+                    }]
+                }
+            });
+        }
+
+        function bubble_chart() {
+            new Chart(ctx, {
+                type: 'bubble', // bar, line 등등 타입 바꾸기 가능
+                data: {
+                    datasets: [{
+                    label: 'First Dataset',
+                    data: [{
+                    x: 20,
+                    y: 30,
+                    r: 15
+                    }, {
+                    x: 40,
+                    y: 10,
+                    r: 10
+                    }],
+                    backgroundColor: 'rgb(255, 99, 132)'
+                }]
+                },
+                options: { //options은 빼도 괜춘
+                scales: {
+                    y: {
+                    beginAtZero: true
+                    }
+                }
+                }
+                })
+        }
+
+        
+    </script>
+</body>
+</html>

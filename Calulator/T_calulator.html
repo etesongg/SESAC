@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>T_calcuator</title>
+    <style>
+        .calcuator {
+            display: grid;
+            grid-template-columns: repeat(4, 1ft);
+            grid-gap: 10px;
+            max-width: 300px;
+            margin : 0 auto;
+        }
+        .calcuator input {
+            grid-column: span 4;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .calcuator button {
+            padding: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calcuator">
+        <input type="text" id="result" readonly>
+        <button onclick="document.getElementById('result').value += this.innerText" >+</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >-</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >*</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >/</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >7</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >8</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >9</button>
+        <button onclick="calcuate()" >=</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >4</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >5</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >6</button>
+        <button onclick="clearResult()" >C</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >1</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >2</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >3</button>
+        <button onclick="document.getElementById('result').value += this.innerText" >4</button>
+    </div>
+    <script>
+        function calcuate() {
+            input = document.getElementById('result').value;
+            console.log(`input : ${input}`);
+            try {
+                result = eval(input);
+                input = reuslt;
+                console.log(result)
+            } catch (error){
+                input.value = 'error'
+            }
+        }
+        function clearResult() {
+            document.getElementById('result').value='';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Revenue</title>
+    <style>
+        body {
+            width: 1100px;
+            margin: 0 auto;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>월간 매출액</h1>
+    <table>
+        <tr>
+            <tb>연월</tb>
+            <tb>월간매출액</tb>
+        </tr>
+        <!-- 진자 템플릿을 통해 받아온 결과를 테이블로 출력(for루프 사용) -->
+        {% for row in rows %}
+        <tr>
+            {% for data in row %}
+            <td>{{ data }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- 그래프로 만들기 -->
+    <h1>월간 매출액 막대 그래프</h1>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div>
+        <canvas id="revenue_Chart"></canvas>
+    </div>
+    <script> 
+    const ctx = document.getElementById('revenue_Chart');
+    bar_Chart()
+
+        function bar_Chart() {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: {{ labels | tojson }} ,
+                datasets: [
+                    {
+                    label: '매출액',
+                    data: {{ values | tojson }} ,
+                }]
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

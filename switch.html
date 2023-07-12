@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function fruitselector(opt) {
+        // var opt = document.getElementById('selector').value;
+        console.log(opt)
+        result = document.getElementById('fruitresult') 
+        switch (opt) {
+            case 'apple':
+                // document.write('이것은 사과입니다.<br>');
+                result.innerHTML = '이것은 사과입니다.';
+                break;
+            case 'banana':
+                // document.write('이것은 바나나입니다.<br>');
+                result.innerHTML = '이것은 사과입니다.';
+                break;
+            case 'orange':
+                // document.write('이것은 오렌지입니다.<br>');
+                result.innerHTML = '이것은 사과입니다.';
+                break;
+        } // 다 사과로 나옴ㅠ
+    }
+    </script>
+</head>
+<body>
+    <h1>도큐먼트에 자바스크립트로 switch/case 출력하기</h1>
+    <select id="selector" onchange="fruitselector(this.value)">
+        <option value="apple">Apple</option>
+        <option value="banana">banana</option>
+        <option value="orange">orange</option>
+    </select>
+    <div id="fruitresult">
+
+    </div>
+</body>
+</html>
