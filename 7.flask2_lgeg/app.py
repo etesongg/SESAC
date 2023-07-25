@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask import Flask, render_template
+from flask import request, redirect, session, url_for, flash
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -26,8 +27,9 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # DB를 통해서 로그인 확인 - 지금은 가상 테이블
+        # 더미 데이터베이스에서 사용자 정보를 확인
         if username in users and users[username]['password'] == password:
+            # 로그인 성공한 경우 세션에 사용자 정보를 저장
             session['username'] = username
             return redirect(url_for('home'))
         else:
@@ -37,6 +39,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    # 세션에서 사용자 정보를 제거하여 로그아웃 처리
     session.pop('username', None)
     return redirect(url_for('home'))
 
