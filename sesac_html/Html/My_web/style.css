@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+  }
+  body {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .home-content {
+    display: flex;
+    text-align: left;
+    margin-top: 20%;
+    margin-left: 5%;
+  }
+  .main-icon {
+    width: 300px;
+    height: 300px;
+    margin-left: 60%;
+    position: relative;
+  }
+  .page-title {
+    font-size: 1.3rem;
+    font-weight: medium;
+    padding-left: 8%;
+    padding-top: 10%;
+    position: absolute;
+  }
+  .logo {
+    width: 150px;
+  }
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main-nav {
+    display: flex;
+    list-style: none;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    margin-top: 70px;
+  }
+  .main-nav li {
+    margin-left: 36px;
+    color: #e9b3ac;
+  }
+  .main-nav a {
+    color: #e9b3ac;
+  }
+  .main-nav a:hover {
+    color: #f05857;
+  }
+  .main-nav .first-li {
+    color: black;
+  }
+  .button {
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    background-color: #ff9998;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    border-color: #ff9998;
+  }
+  .button:hover {
+    background-color: #f05857;
+  }
+  #home {
+    background-color: #fbece7;
+    width: 100%;
+    height: 540px;
+  }
+  .middle {
+    display: flex;
+    padding-top: 5%;
+  }
+  hr {
+    border: 0;
+    background: #f05857;
+    height: 1px;
+  }
+  .middle-bar {
+    background-color: #dee0e4;
+    width: 850px;
+    height: 100px;
+    border-radius: 6px;
+    margin: 1% auto;
+    border: solid 1px #e9b3ac;
+  }
+  footer {
+    background-color: #ff9998;
+    text-align: center;
+    padding: 26px 0;
+    margin-top: 10%;
+    color: white;
+}
+.grid-content {
+    max-width: 560px;
+    margin-top: 10%;
+}
+.grid-content .medical-title, .kindergarten-title {
+    text-align: center;
+    padding-bottom: 7%;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.item img {
+    border-radius: 5px;
+}

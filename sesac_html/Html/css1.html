@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>css</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Philosopher&display=swap');
+        .rgb-black { color: rgb(0,0,0); }
+        .rgba-black { color: rgba(0, 0, 0, 0.5);}
+        .rgba-red { color: rgba(255, 0, 0, 0.5);}
+
+        p {
+            color: red;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: line-through;
+            /* width: 400px;
+            height: 50px; */
+            border-width: 1px;
+            border-style: dotted;
+            border-color: red;
+            font-family:'Nanum Myeongjo';
+            font-style: italic;
+            display: block;
+            
+        }
+        p#myid1 {
+            color: blue;
+        }
+        h3, h4 {
+            color: aquamarine;
+            /* border:5px double green; */
+            border-top: 1px solid red;
+            border-right: 5px dotted orange;
+            border-left: 2px dashed yellow;
+            border-bottom: 5px double gray;
+            padding-top: 5%;
+            padding-left: 5%;
+            margin: 50px;
+            background-color: gray;
+            background-image: url(./images/animal.jpg);
+            background-repeat: no-repeat;
+        }
+        li {
+            color: brown;
+            list-style: none;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>css 연습용 페이지</h1>
+    <p class="rgba-red">여기는 문장을 아무거나 작성하시오</p>
+    <p class="myclass1 rgb-black">여기는 문장을 아무거나 작성하시오</p>
+    <p id="myid1">여기는 문장을 아무거나 작성하시오</p>
+    <p class="myclass1 rgba-black">여기는 문장을 아무거나 작성하시오</p>
+    <p id="myid2">여기는 문장을 아무거나 작성하시오</p>
+    <h3>여기는 헤딩3 문장입니다</h3>
+    <h3>여기는 헤딩4 문장입니다</h3>
+    <ul>
+        <li>커피</li>
+        <li>아메리카노</li>
+        <li>에소프레소</li>
+        <li>카페라떼</li>
+    </ul>
+</body>
+</html>

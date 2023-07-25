@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>물어볼개 무엇이냥</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <style>
+      * {
+        margin: 0;
+      }
+      a {
+        text-decoration: none;
+      }
+      .wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 4%;
+      }
+      body {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .home-content {
+        display: flex;
+        text-align: left;
+        margin-top: 20%;
+        margin-left: 5%;
+      }
+      .main-icon {
+        width: 300px;
+        height: 300px;
+        margin-left: 60%;
+        position: relative;
+      }
+      .page-title {
+        font-size: 1.3rem;
+        font-weight: medium;
+        padding-left: 8%;
+        padding-top: 10%;
+        position: absolute;
+      }
+      .logo {
+        width: 150px;
+      }
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .main-nav {
+        display: flex;
+        list-style: none;
+        font-size: 1.25rem;
+        text-transform: capitalize;
+        margin-top: 70px;
+      }
+      .main-nav li {
+        margin-left: 36px;
+        color: #e9b3ac;
+      }
+      .main-nav a {
+        color: #e9b3ac;
+      }
+      .main-nav a:hover {
+        color: #f05857;
+      }
+      .main-nav .first-li {
+        color: black;
+      }
+      .button {
+        font-size: 8px;
+        display: flex;
+        align-items:center;
+        background-color: #ff9998;
+        color: white;
+        border-radius: 6px;
+        padding: 10px 20px;
+        border-color: #ff9998;
+      }
+      .button:hover {
+        background-color: #f05857;
+      }
+      #home {
+        background-color: #fbece7;
+        width: 100%;
+        height: 540px;
+      }
+      .middle {
+        display: flex;
+        padding-top: 5%;
+      }
+      hr {
+        border: 0;
+        background: #f05857;
+        height: 1px;
+      }
+      .middle-bar {
+        background-color: #DEE0E4;
+        width: 850px;
+        height: 100px;
+        border-radius: 6px;
+        margin: 1% auto;
+        border: solid 1px #e9b3ac;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="home">
+      <header class="page-header wrapper">
+        <h1>
+          <a href="index.html"
+            ><img
+              src="./images/logo2.png"
+              alt="물어볼개 무엇이냥 홈"
+              class="logo"
+          /></a>
+        </h1>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="home.html" class="first-li">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="medical.html">Medical</a></li>
+            <li><a href="kindergarten.html">Kindergarten</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><p>|</p></li>
+            <li><a href="login.html" class="button">Log In</a></li>
+          </ul>
+        </nav>
+      </header>
+      <hr>
+      <div class="middle">
+        <img src="./images/main-icon.png" alt="" class="main-icon" />
+        <h2 class="page-title">
+        반려동물에 대한 모든 니즈를 한 자리에 <br />
+        반려동물과 함께하는 온라인 공간. <br />
+        다양한 경험을 누리세요.
+      </h2>
+    </div>
+      <div class="middle-bar">
+        
+      </div>
+      <div class="home-content wrapper"></div>
+    </div>
+  </body>
+</html>
