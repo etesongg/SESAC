@@ -24,7 +24,7 @@ class User(db.Model):
 
     # 내가 원하는 형태
     def __repr__(self):
-        return f'<User {self.name}, {self.gender}, {self.age}'
+        return f'<User {self.name}, {self.gender}, {self.age}>'
     
 class Store(db.Model):
     __tablename__ = 'store'
@@ -36,7 +36,7 @@ class Store(db.Model):
 
     # print를 편하게 도와주는 선택사항임(이거 안 하면 id 값만 나옴) 
     def __repr__(self):
-        return f'<Store {self.name}, {self.type}, {self.address}'
+        return f'<Store {self.name}, {self.type}, {self.address}>'
 
 class Order(db.Model):
     __tablename__ = 'orders'
@@ -46,7 +46,9 @@ class Order(db.Model):
     userid = db.Column(db.String(64), db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f'<Store {self.orderat}, {self.storeid}, {self.userid}'
+        return f'<Store {self.orderat}, {self.storeid}, {self.userid}>'
+    
+
 
 
 @app.route('/')
