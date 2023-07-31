@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, current_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_migrate import Migrate
 
 """
 LoginManager: 로그인 관리를 담당하는 클래스로, Flask 애플리케이션에서 로그인 기능을 초기화하고 관리하는 역할을 합니다.
@@ -22,6 +23,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # db 생성
 db = SQLAlchemy(app)
 
+# db 마이그레이션 모듈로딩
+migrate = Migrate(app, db)
+
 # 로그인 매니저 생성
 login_manager = LoginManager(app)
 login_manager.login_view = 'login' # 로그인 페이지 url을 명시해 주는 것
@@ -32,7 +36,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(80), nullable=False)
     # password_hash = db.Column(db.String(120), nullable=False)
-    # email = db.Column(db.String(80))
+    email = db.Column(db.String(80))
 
     def set_password(self, password):
         self.password = password
@@ -85,7 +89,7 @@ def profile_edit():
     # 1. 폼을 통해서 수정할 정보를 가져온다. (password를 받아온다)
     if request.method == 'POST': # main, profile_edit에서 profile_edit 할때 오는 post구분하기 위해 main에서 method를 get으로 변경함
         new_password = request.form['new_password']
-        # new_email = request.form['new_email']
+        new_email = request.form['new_email']
         
     # 2. 저장할 장소(즉 현재 사용자)를 가져온다 (current_user 를 통해서 접근 가능)
     # 3. 받아온 정보를 db에 저장한다. 
@@ -93,8 +97,8 @@ def profile_edit():
         # user.password = new_password
         if new_password:
             current_user.set_password(new_password)
-        # if new_email:
-        #     current_user.email = new_email
+        if new_email:
+            current_user.email = new_email
         
         db.session.commit()
         flash("프로필이 수정 되었습니다.", "success")
@@ -111,14 +115,14 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        # email = request.form['email']
+        email = request.form['email']
     # 2. 사용자가 있는지 조회
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
             flash("사용자가 이미 존재합니다.", "danger")
             return redirect(url_for('register'))
     # 3. db에 저장한다
-        user = User(username=username)
+        user = User(username=username, email=email)
         user.set_password(password)
         db.session.add(user)
         db.session.commit()
