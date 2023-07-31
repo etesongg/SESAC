@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="{% url 'login' %}">로그인</a></li>
+        <li><a href="{% url 'logout' %}">로그아웃</a></li>
+    </ul>
+
+    <h1>로그인 사용자의 홈</h1>
+    <p>Welcome, {{ username }}</p>
+    <p>You are... {{ first_name }}, {{ last_name }}, {{ email }}</p>
+</body>
+</html>
+
