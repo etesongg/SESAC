@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
     <h1>{{ todo.title }}</h1>
     <p>{{ todo.description }}</p>
     <label>Created: {{ todo.created_at }}</label>
@@ -15,5 +11,5 @@
     <a href="{% url 'todo' %}">목록보기</a>
     <a href="{% url 'update' id=todo.id %}">수정하기</a>
     <a href="{% url 'delete' id=todo.id %}">삭제하기</a>
-</body>
-</html>
+
+{% endblock %}
