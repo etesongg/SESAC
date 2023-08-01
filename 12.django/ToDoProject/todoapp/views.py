@@ -31,6 +31,7 @@ def update(request, id):
         new_description = request.POST['new_description']
         todo.title = new_title
         todo.description = new_description
+        todo.updated_at = todo.updated_at
         todo.save()
         return redirect('todo')
 

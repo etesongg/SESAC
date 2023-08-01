@@ -8,6 +8,10 @@
 <body>
     <h1>{{ todo.title }}</h1>
     <p>{{ todo.description }}</p>
+    <label>Created: {{ todo.created_at }}</label>
+    <br>
+    <label>Updated: {{ todo.updated_at }}</label>
+    <br>
     <a href="{% url 'todo' %}">목록보기</a>
     <a href="{% url 'update' id=todo.id %}">수정하기</a>
     <a href="{% url 'delete' id=todo.id %}">삭제하기</a>
