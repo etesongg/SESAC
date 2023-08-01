@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Todo</h1>
+    <form action="{% url 'update' id=todo.id %}" method="POST">
+        {% csrf_token %}
+        <label for="new_title">Title: </label>
+        <input type="text" name="new_title" value="{{ todo.title }}" required>
+        <br>
+        <label for="new_description">Description: </label>
+        <textarea name="new_description" cols="50" rows="10" required>{{ todo.description }}</textarea>
+        <br>
+        <button>save</button>
+    </form>
+</body>
+</html>
