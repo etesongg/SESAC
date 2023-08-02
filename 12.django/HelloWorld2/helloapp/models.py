@@ -6,3 +6,7 @@ class Message(models.Model):
 
     def __str__(self):
         return self.text
+    
+class ToDo(models.Model):
+    title = models.CharField(max_length=100)
+    discription = models.CharField(max_length=1000)

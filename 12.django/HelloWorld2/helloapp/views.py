@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Message
+from .models import Message, ToDo
 
 
 # Create your views here.
@@ -13,3 +13,6 @@ def show_messages(request):
     print(messages)
     return render(request, 'message_list.html',{'messages': messages})
 
+def todo(request):
+    title_list = ToDo.objects.all()
+    return render(request, 'todo_list.html', {'title_list': title_list})
