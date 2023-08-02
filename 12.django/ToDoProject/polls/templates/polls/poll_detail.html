@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% for choice in poll_choice.choice_set.all %}
+        <input type="radio" name="choice" value="{{ choice.id }}" id="choice{{ forloop.counter }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+        <br>
+    {% endfor %}
+
+</body>
+</html>

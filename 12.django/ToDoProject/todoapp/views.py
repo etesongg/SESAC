@@ -4,7 +4,7 @@ from .models import ToDo
 # Create your views here.
 
 def home(request):
-    return redirect('todo')
+    return render(request, 'todo/index.html')
 
 def todo(request):
     todos = ToDo.objects.all()
