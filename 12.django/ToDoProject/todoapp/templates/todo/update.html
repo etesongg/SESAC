@@ -3,7 +3,7 @@
 {% block content %}
 
     <h1>Update Todo</h1>
-    <form action="{% url 'update' id=todo.id %}" method="PUT">
+    <form action="{% url 'update' id=todo.id %}" method="POST">
         {% csrf_token %}
         <label for="new_title">Title: </label>
         <input type="text" name="new_title" value="{{ todo.title }}" required>

@@ -23,7 +23,7 @@ def todo_view(request, id):
     # todo = ToDo.objects.get(id=id)
     
     # 가져오는 여러방식 있음
-    # 없는 페이지를 요청할때 만약 목록 5가 없는데 url에서 직접 /5로 치고 들어간다면 404로 보내줌
+    # 없는 페이지를 요청할때 만약 id 5가 없는데 url에서 직접 /5로 치고 들어간다면 404로 보내줌
     todo = get_object_or_404(ToDo, id=id)
 
     return render(request, 'todo/todo_view.html', {'todo': todo})
@@ -38,7 +38,7 @@ def update(request, id):
         todo.title = new_title
         todo.description = new_description
         todo.save()
-        return redirect('todo_view', todo.id) # todo.id 대신 id=id 써도 가능
+        return redirect('todo_view', id=id) # todo.id 대신 id=id 써도 가능
 
     return render(request, 'todo/update.html', {'todo': todo})
 
