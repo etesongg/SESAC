@@ -6,12 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    {% csrf_token %}
-    {% for choice in poll_choice %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for choice in poll_choice %}
         <input type="radio" name="choice" value="{{ choice.id }}" id="choice{{ forloop.counter }}">
         <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
         <br>
-    {% endfor %}
-
+        {% endfor %}
+        <input type="submit" value="Vote">
+    </form>
 </body>
 </html>

@@ -10,7 +10,7 @@ class Question(models.Model):
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.TextField()
-    votes = models.IntegerField(default=0, null=True)
+    votes = models.IntegerField(default=0)
 
     
     def __str__(self):
