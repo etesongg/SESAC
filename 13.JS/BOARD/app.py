@@ -36,7 +36,6 @@ def list():
 @app.route('/delete', methods=['post'])
 def delete():
     id = request.form['id']
-    print(id)
     sql = 'delete from board where id = "{}"'.format(id)
     db.execute(sql)
     db.commit()

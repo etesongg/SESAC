@@ -25,7 +25,7 @@
         </div>
 
         
-        <div id="card-list" class="card-columns ">
+        <div id="card-list" class="card-columns row row-cols-3">
             
         </div>
     </div>
@@ -53,8 +53,8 @@
         function makeCard(id, title, message) {
             let card_content = 
                 `
-                <div class="card">
-                <div class="card-body">
+                <div class="card col">
+                <div class="card-body-${id}">
                     <a class="card-title" id="input-title-${id}">${title}</a>
                     <p class="card-text" id="input-text-${id}">${message}</p>
                     <button type="button" class="btn btn-info" onclick="modifyPOST('${id}')">수정</button>
@@ -80,7 +80,7 @@
         }
 
         function modifyPOST(id){
-            const post = document.querySelector(`.card-body`);
+            const post = document.querySelector(`.card-body-${id}`);
             const title = document.querySelector(`#input-title-${id}`).innerHTML;
             const message = document.querySelector(`#input-text-${id}`).innerHTML;
             console.log(post, title, message);
@@ -88,17 +88,34 @@
             let card_content = 
                 `
                 <div class="card">
-                <div class="card-body">
+                <div class="card-body-${id}">
                     <div class="form-group">
-                        <input class="form-control" id="input-title" name="title" value="${title}">
-                        <textarea class="form-control" id="input-text" name="message" rows="2">${message}</textarea>
+                        <input class="form-control" id="input-title-${id}" name="title" value="${title}">
+                        <textarea class="form-control" id="input-text-${id}" name="message" rows="2">${message}</textarea>
                     </div>
-                    <button type="button" class="btn btn-info" onclick="modifyPOST('${id}')">완료</button>
+                    <button type="button" class="btn btn-info" onclick="updatePost('${id}')">완료</button>
                     <button type="button" class="btn btn-warning" onclick="deletePost('${id}')">삭제</button>
                 </div>
                 </div>
                 `
             $(post).replaceWith(card_content); 
+            
+        }
+
+        function updatePost(id) {
+            let title = $(`#input-title-${id}`).val();
+            let text = $(`#input-text-${id}`).val();
+
+            $.ajax({
+                type: 'post',
+                url: '/modify',
+                data: {id:id, title:title, message:text},
+                success: function(resp) {
+                    console.log(resp);
+                    alert("수정완료" + resp);
+                    window.location.reload();
+                }
+            })
         }
         
         $('document').ready(() => {
