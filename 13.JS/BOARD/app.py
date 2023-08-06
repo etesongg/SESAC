@@ -43,5 +43,16 @@ def delete():
     return "OK"
 
 
+@app.route('/modify', methods=['post'])
+def modify():
+    id = request.form['id']
+    title = request.form['title']
+    message = request.form['message']
+    print(id, title, message)
+    sql = 'update board set title=?, message=? where id=?'
+    db.execute(sql, (title, message, id))
+    db.commit()
+    return "OK"
+
 if __name__ == '__main__':
     app.run(debug=True)

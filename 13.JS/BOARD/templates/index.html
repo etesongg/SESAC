@@ -25,7 +25,7 @@
         </div>
 
         
-        <div id="card-list" class="card-columns">
+        <div id="card-list" class="card-columns ">
             
         </div>
     </div>
@@ -33,7 +33,7 @@
 
 
     <script>
-        function uploadPost() {
+        function uploadPost(id) {
             let title = $('#input-title').val();
             let text = $('#input-text').val();
 
@@ -45,6 +45,7 @@
                     // 성공시 처리방법
                     console.log(resp);
                     alert("저장완료 " + resp);
+                    window.location.reload();
                 }
             })
         }
@@ -56,10 +57,10 @@
                 <div class="card-body">
                     <a class="card-title" id="input-title-${id}">${title}</a>
                     <p class="card-text" id="input-text-${id}">${message}</p>
-                    <button type="button" class="btn btn-info" onclick="updatePOST()">수정</button>
+                    <button type="button" class="btn btn-info" onclick="modifyPOST('${id}')">수정</button>
                     <button type="button" class="btn btn-warning" onclick="deletePost('${id}')">삭제</button>
                 </div>
-            </div>
+                </div>
                 `
             $('#card-list').append(card_content);
         }
@@ -78,6 +79,27 @@
             })
         }
 
+        function modifyPOST(id){
+            const post = document.querySelector(`.card-body`);
+            const title = document.querySelector(`#input-title-${id}`).innerHTML;
+            const message = document.querySelector(`#input-text-${id}`).innerHTML;
+            console.log(post, title, message);
+
+            let card_content = 
+                `
+                <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <input class="form-control" id="input-title" name="title" value="${title}">
+                        <textarea class="form-control" id="input-text" name="message" rows="2">${message}</textarea>
+                    </div>
+                    <button type="button" class="btn btn-info" onclick="modifyPOST('${id}')">완료</button>
+                    <button type="button" class="btn btn-warning" onclick="deletePost('${id}')">삭제</button>
+                </div>
+                </div>
+                `
+            $(post).replaceWith(card_content); 
+        }
         
         $('document').ready(() => {
             $.ajax({
