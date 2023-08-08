@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<div class="head_section">
+    <h1>예매순위</h1>
+    <div class="dropdown" style="position: relative;">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        날짜 선택 (현재 : {{ date }})
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="{{ url_for('index') }}">메인으로 가기</a></li>
+            {% for date in date_result %}
+            <li><a class="dropdown-item" href="{{ url_for('daily_movie', date=date[0]) }}">{{ date[0] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    {% for d in result %}
+    <div class="col">
+      <div class="card h-100">
+        <div class="image-container">
+            <img src="{{ d[5] }}" class="card-img-top" alt="{{ d[1] }}">
+            <span class="rank_num">{{ d[0] }}</span>
+            <span id="text">{{ d[4] }}</span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ d[1] }}</h5>
+          <p class="card-text">평점 : {{ d[2] }}</p>
+          <p class="card-text">예매율 : {{ d[3] }}</p>
+          <a href="{{ d[6] }}" class="btn btn-primary">영화 정보 보러가기</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+{% endblock %}

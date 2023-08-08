@@ -31,7 +31,7 @@ def daily_movie(date):
                 ''')
     date_result = cur.fetchall()
 
-    return render_template('daily_movie.html', result=result, date=date, date_result=date_result)
+    return render_template('daily_movie_v2.html', result=result, date=date, date_result=date_result)
 
 if __name__ == '__main__':
     # cur.execute('''

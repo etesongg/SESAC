@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-<h1>daily_movie</h1>
-{% for d in result %}
-    <a href="{{ url_for('daily_movie', date=d[0]) }}">{{ d[0] }}</a><br>
-{% endfor %}
+<div class="container">
+<h1 class="display-6">Daily_movie</h1>
+    <div class="list-group" style="width: 200px;">
+        {% for d in result %}
+        <a href="{{ url_for('daily_movie', date=d[0]) }}" class="list-group-item list-group-item-action">{{ d[0] }}</a>
+        {% endfor %}
+    </div>
+</div> 
 
 {% endblock %}

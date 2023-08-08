@@ -1,0 +1,45 @@
+.head_section {
+  display: flex;
+  padding: 3%;
+}
+.head_section h1 {
+  padding-right: 1%;
+}
+
+.card-img-top {
+  width: 100%;
+}
+.image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.rank_num {
+  position: absolute;
+  color: #ffffff;
+  padding: 4px 8px;
+  font-size: 30px;
+  text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;;
+}
+#text {
+  display: none; /* 처음에는 숨기기 */
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 30px;
+  border-radius: 4px;
+  z-index: 1; /* 이미지 위로 보이게 */
+  height: 100%;
+  width: 100%;
+}
+.image-container:hover #text {
+  display: block; /* 마우스를 올리면 짧은 설명 표시 */
+} 
+
+  
+  
+  
+  
+  
+  
