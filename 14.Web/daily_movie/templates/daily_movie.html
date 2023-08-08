@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div style="display: flex;">
+        <h1>영화 랭킹</h1>
+        <div class="dropdown" style="position: relative;">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            날짜 선택 (현재 : {{ date }})
+            </a>
+        
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                {% for date in date_result %}
+                <li><a class="dropdown-item" href="{{ url_for('daily_movie', date=date[0]) }}">{{ date[0] }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <table class="table table-hover" style="table-layout: fixed">
+        <tr>
+            <th width="10%">예매순위</th>
+            <th width="10%">제목</th>
+            <th width="5%">평점</th>
+            <th width="5%">예매율</th>
+            <th width="45%">짧은 설명</th>
+            <th width="15%">포스터</th>
+            <th width="10%">영화 정보</th>
+        </tr>
+        {% for d in result %}
+        <tr onclick="window.location='{{ d[6] }}'">
+            <td scope="row">{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
+            <td><img src="{{ d[5] }}" alt="" style="width:100px;" ></td>
+            <td><a href="{{ d[6] }}">Link</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

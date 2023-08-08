@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<h1>daily_movie</h1>
+{% for d in result %}
+    <a href="{{ url_for('daily_movie', date=d[0]) }}">{{ d[0] }}</a><br>
+{% endfor %}
+
+{% endblock %}
