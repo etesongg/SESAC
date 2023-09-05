@@ -124,6 +124,7 @@
             url: '/list',
              // 성공시 처리방법
             success: (resp) => {
+                console.log(resp)
                 for (let i = 0; i < resp.length; i++) {
                 makeCard(resp[i]['id'], resp[i]['title'], resp[i]['message']);
                 }

@@ -48,8 +48,8 @@ def modify():
     title = request.form['title']
     message = request.form['message']
     print(id, title, message)
-    sql = 'update board set title=?, message=? where id=?'
-    db.execute(sql, (title, message, id))
+    sql = 'update board set title="{}", message="{}" where id="{}"'.format(title, message, id)
+    db.execute(sql)
     db.commit()
     return "OK"
 

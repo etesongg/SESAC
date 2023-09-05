@@ -30,8 +30,6 @@ class Users(db.Model):
         self.name = name
         self.password = password
         self.email = email
-users = Users.query.all()
-
    
 users = {
     'user1': {'password': 'password123'},
@@ -92,7 +90,7 @@ def logout():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    # db 초기화
+    # db 초기화?생성?
     with app.app_context():
         db.create_all()
     app.run(debug=True)

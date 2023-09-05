@@ -106,9 +106,9 @@ def home():
     # print(user_male_count)
 
     # # user의 이름에 '김'이 포함 되며 성별이 female인 사람의 {이름, 성별, 생일} 출력하기 (like, and 필요)
-    # search_users = User.query.filter(User.name.like('%김%'), User.gender.like('female')).all()
-    # for user in search_users:
-    #     print(f'{user.name}, {user.gender}, {user.birthdate}')
+    search_users = User.query.filter(User.name.like('%김%'), User.gender.like('female')).all()
+    for user in search_users:
+        print(f'{user.name}, {user.gender}, {user.birthdate}')
 
     # 특정 유저의 주문 정보
     users = User.query.filter_by(id='94eab4b2-ed41-4c06-ad7c-d225314944b4').first()
