@@ -1,2 +1,20 @@
-# 키 파일
+# macOS system files
+.DS_Store
+
+# Compiled Python files
+__pycache__
+*.pyc
+
+# Database files
+*.db
+
+# Sensitive data: API keys and other secrets
 secrets.json
+secrets.js
+
+# Application configuration
+config.py
+
+# image folder
+img
+thumbnail_img
